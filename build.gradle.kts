@@ -7,6 +7,7 @@ sonar {
     properties {
         property("sonar.projectKey", "nodirbek9_java-project-61");
         property ("sonar.organization", "nodirbek9")
+        property ("sonar.host.url", "https://sonarcloud.io")
     }
 }
 tasks.getByName("run", JavaExec::class) {
