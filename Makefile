@@ -2,7 +2,7 @@ build:
 	./gradlew build
 
 run:
-	./gradlew run
+	./gradlew run --console=plain
 
 test:
 	./gradlew test
