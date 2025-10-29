@@ -1,5 +1,6 @@
 .gradle
 INFO.md
+demo.cast
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
