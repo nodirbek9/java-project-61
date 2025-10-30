@@ -4,6 +4,7 @@ import hexlet.code.games.Calculator;
 import hexlet.Cli;
 import hexlet.code.games.EvenGame;
 import hexlet.code.games.Gcd;
+import hexlet.code.games.Progression;
 
 import java.util.Scanner;
 
@@ -19,6 +20,7 @@ public class App {
                 + "2 - Even\n"
                 + "3 - Calc\n"
                 + "4 - GCD\n"
+                + "5 - Progression\n"
                 + "0 - Exit");
         System.out.print("Your choice: ");
         int choice = scanner.nextInt();
@@ -28,6 +30,7 @@ public class App {
             case 2 -> Engine.run(new EvenGame());
             case 3 -> Engine.run(new Calculator());
             case 4 -> Engine.run(new Gcd());
+            case 5 -> Engine.run(new Progression());
             case 0 -> System.out.println("Goodbye!");
             default -> System.out.println("Invalid choice. Please try again.");
         }
