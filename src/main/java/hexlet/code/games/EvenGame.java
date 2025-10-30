@@ -7,6 +7,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class EvenGame implements Game {
+    private Random random = new Random();
 
     @Override
     public String getGameDescription() {
@@ -15,7 +16,6 @@ public class EvenGame implements Game {
 
     @Override
     public String[] generateQuestionAndAnswer() {
-        Random random = new Random();
         int num = random.nextInt(20);
         int forChek = num % 2;
         String result = switch (forChek) {

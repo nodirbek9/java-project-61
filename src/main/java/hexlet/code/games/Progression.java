@@ -5,6 +5,8 @@ import hexlet.code.Game;
 import java.util.Random;
 
 public class Progression implements Game {
+    private Random random = new Random();
+
     @Override
     public String getGameDescription() {
         return "What number is missing in the progression?";
@@ -12,7 +14,6 @@ public class Progression implements Game {
 
     @Override
     public String[] generateQuestionAndAnswer() {
-        Random random = new Random();
 
         int firstElement = random.nextInt(20);
         int step = random.nextInt(9) + 1;

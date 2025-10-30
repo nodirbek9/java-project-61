@@ -1,11 +1,11 @@
 package hexlet.code.games;
 
-import hexlet.Cli;
 import hexlet.code.Game;
 
 import java.util.Random;
 
 public class Calculator implements Game {
+    private Random random = new Random();
 
     @Override
     public String getGameDescription() {
@@ -14,7 +14,6 @@ public class Calculator implements Game {
 
     @Override
     public String[] generateQuestionAndAnswer() {
-        Random random = new Random();
         int a = random.nextInt(20);
         int b = random.nextInt(20);
         char[] ops = {'+', '-', '*'};

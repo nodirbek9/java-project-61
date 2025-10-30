@@ -5,6 +5,7 @@ import hexlet.code.Game;
 import java.util.Random;
 
 public class Gcd implements Game {
+    private Random random = new Random();
     @Override
     public String getGameDescription() {
         return "Find the greatest common divisor of given numbers.";
@@ -12,7 +13,6 @@ public class Gcd implements Game {
 
     @Override
     public String[] generateQuestionAndAnswer() {
-        Random random = new Random();
         int a = random.nextInt(50);
         int b = random.nextInt(50);
 
