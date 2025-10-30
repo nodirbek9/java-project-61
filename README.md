@@ -5,3 +5,6 @@ https://asciinema.org/a/6BDWoMYBmVqiwvuejKwnMWqIB
 
 // Second Calc game demonstration
 https://asciinema.org/a/xrRnadk8HFBqi4GBVfzaPQ2o3
+
+// Third GCD game demonstrated
+https://asciinema.org/a/uxnFmafu30eJr3m7zWoTdkwW1
