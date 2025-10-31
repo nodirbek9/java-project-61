@@ -10,8 +10,8 @@ public class Prime {
     public static void start() {
         String description = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         String[][] questionsAndAnswers = new String[3][2];
-
         for (int i = 0; i < 3; i++) {
+
             String[] qa = generateQuestionAndAnswer();
             questionsAndAnswers[i][0] = qa[0];
             questionsAndAnswers[i][1] = qa[1];

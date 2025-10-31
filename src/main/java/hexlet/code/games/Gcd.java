@@ -8,9 +8,9 @@ public class Gcd {
     private static final Random random = new Random();
 
     public static void start() {
+
         String description = "Find the greatest common divisor of given numbers.";
         String[][] questionsAndAnswers = new String[3][2];
-
         for (int i = 0; i < 3; i++) {
             String[] qa = generateQuestionAndAnswer();
             questionsAndAnswers[i][0] = qa[0];

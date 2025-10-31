@@ -10,7 +10,6 @@ public class EvenGame {
     public static void start() {
         String description = "Answer 'yes' if the number is even, otherwise answer 'no'.";
         String[][] questionsAndAnswers = new String[3][2];
-
         for (int i = 0; i < 3; i++) {
             String[] qa = generateQuestionAndAnswer();
             questionsAndAnswers[i][0] = qa[0];
