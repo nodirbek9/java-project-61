@@ -7,12 +7,13 @@ import java.util.Random;
 public class Progression {
     private static final Random random = new Random();
     private static final int LENGTH = 10;
+    private static final int ROUNDS_COUNT = 3;
 
     public static void start() {
         String description = "What number is missing in the progression?";
         String[][] questionsAndAnswers = new String[3][2];
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < ROUNDS_COUNT; i++) {
             String[] qa = generateQuestionAndAnswer();
             questionsAndAnswers[i][0] = qa[0];
             questionsAndAnswers[i][1] = qa[1];
@@ -23,7 +24,7 @@ public class Progression {
 
     public static String[] generateQuestionAndAnswer() {
 
-        int start = random.nextInt(10);
+        int start = random.nextInt(LENGTH);
         int step = random.nextInt(5) + 1;
         int hiddenIndex = random.nextInt(LENGTH);
 

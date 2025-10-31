@@ -6,11 +6,13 @@ import java.util.Random;
 
 public class EvenGame {
     private static final Random random = new Random();
+    private static final int ROUNDS_COUNT = 3;
+    private static final int GENERATE_NUMBERS = 20;
 
     public static void start() {
         String description = "Answer 'yes' if the number is even, otherwise answer 'no'.";
         String[][] questionsAndAnswers = new String[3][2];
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < ROUNDS_COUNT; i++) {
             String[] qa = generateQuestionAndAnswer();
             questionsAndAnswers[i][0] = qa[0];
             questionsAndAnswers[i][1] = qa[1];
@@ -20,7 +22,7 @@ public class EvenGame {
     }
 
     public static String[] generateQuestionAndAnswer() {
-        int num = random.nextInt(20);
+        int num = random.nextInt(GENERATE_NUMBERS);
         int forChek = num % 2;
         String result = switch (forChek) {
             case 0 -> "yes";

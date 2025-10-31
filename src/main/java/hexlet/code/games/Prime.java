@@ -6,11 +6,12 @@ import java.util.Random;
 
 public class Prime {
     private static final Random random = new Random();
+    private static final int ROUNDS_COUNT = 3;
 
     public static void start() {
         String description = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         String[][] questionsAndAnswers = new String[3][2];
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < ROUNDS_COUNT; i++) {
 
             String[] qa = generateQuestionAndAnswer();
             questionsAndAnswers[i][0] = qa[0];
