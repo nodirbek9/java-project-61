@@ -12,10 +12,6 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Cli newcli = new Cli();
-        EvenGame evenGame = new EvenGame();
-        Calculator calculator = new Calculator();
-
         System.out.println("Please enter the game number and press Enter.\n"
                 + "1 - Greet\n"
                 + "2 - Even\n"
@@ -29,11 +25,11 @@ public class App {
 
         switch (choice) {
             case 1 -> new Cli().welcomeToGame();
-            case 2 -> Engine.run(new EvenGame());
-            case 3 -> Engine.run(new Calculator());
-            case 4 -> Engine.run(new Gcd());
-            case 5 -> Engine.run(new Progression());
-            case 6 -> Engine.run(new Prime());
+            case 2 -> EvenGame.start();
+            case 3 -> Calculator.start();
+            case 4 -> Gcd.start();
+            case 5 -> Progression.start();
+            case 6 -> Prime.start();
             case 0 -> System.out.println("Goodbye!");
             default -> System.out.println("Invalid choice. Please try again.");
         }

@@ -1,21 +1,26 @@
 package hexlet.code.games;
 
-import hexlet.Cli;
-import hexlet.code.Game;
+import hexlet.code.Engine;
 
 import java.util.Random;
-import java.util.Scanner;
 
-public class EvenGame implements Game {
-    private Random random = new Random();
+public class EvenGame {
+    private static final Random random = new Random();
 
-    @Override
-    public String getGameDescription() {
-        return "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    public static void start() {
+        String description = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+        String[][] questionsAndAnswers = new String[3][2];
+
+        for (int i = 0; i < 3; i++) {
+            String[] qa = generateQuestionAndAnswer();
+            questionsAndAnswers[i][0] = qa[0];
+            questionsAndAnswers[i][1] = qa[1];
+        }
+
+        Engine.run(description, questionsAndAnswers);
     }
 
-    @Override
-    public String[] generateQuestionAndAnswer() {
+    public static String[] generateQuestionAndAnswer() {
         int num = random.nextInt(20);
         int forChek = num % 2;
         String result = switch (forChek) {

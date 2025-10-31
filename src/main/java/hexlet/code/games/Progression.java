@@ -1,42 +1,49 @@
 package hexlet.code.games;
 
-import hexlet.code.Game;
+import hexlet.code.Engine;
 
 import java.util.Random;
 
-public class Progression implements Game {
-    private Random random = new Random();
+public class Progression {
+    private static final Random random = new Random();
+    private static final int LENGTH = 10;
 
-    @Override
-    public String getGameDescription() {
-        return "What number is missing in the progression?";
+    public static void start() {
+        String description = "What number is missing in the progression?";
+        String[][] questionsAndAnswers = new String[3][2];
+
+        for (int i = 0; i < 3; i++) {
+            String[] qa = generateQuestionAndAnswer();
+            questionsAndAnswers[i][0] = qa[0];
+            questionsAndAnswers[i][1] = qa[1];
+        }
+
+        Engine.run(description, questionsAndAnswers);
     }
 
-    @Override
-    public String[] generateQuestionAndAnswer() {
+    public static String[] generateQuestionAndAnswer() {
 
-        int firstElement = random.nextInt(20);
-        int step = random.nextInt(9) + 1;
-        int length = random.nextInt(6) + 5;
+        int start = random.nextInt(10);
+        int step = random.nextInt(5) + 1;
+        int hiddenIndex = random.nextInt(LENGTH);
 
-        int[] progression = progressionNumbers(firstElement, step, length);
-        int hiddenIndex = random.nextInt(length);
+        int[] progression = progressionNumbers(start, step, LENGTH);
 
         String progressionStr = "";
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < LENGTH; i++) {
             if (i == hiddenIndex) {
                 progressionStr += "..";
             } else {
                 progressionStr += progression[i];
             }
 
-            if (i < length - 1) {
+            if (i < LENGTH - 1) {
                 progressionStr += " ";
             }
         }
 
-        String corrextAnswer = Integer.toString(progression[hiddenIndex]);
-        return new String[]{progressionStr, corrextAnswer};
+        String correctAnswer = Integer.toString(progression[hiddenIndex]);
+        return new String[]{progressionStr, correctAnswer};
     }
 
     public static int[] progressionNumbers(int first, int step, int length) {

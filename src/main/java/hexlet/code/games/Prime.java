@@ -1,24 +1,31 @@
 package hexlet.code.games;
 
-import hexlet.code.Game;
+import hexlet.code.Engine;
 
 import java.util.Random;
 
-public class Prime implements Game {
-    @Override
-    public String getGameDescription() {
-        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+public class Prime {
+    private static final Random random = new Random();
+
+    public static void start() {
+        String description = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        String[][] questionsAndAnswers = new String[3][2];
+
+        for (int i = 0; i < 3; i++) {
+            String[] qa = generateQuestionAndAnswer();
+            questionsAndAnswers[i][0] = qa[0];
+            questionsAndAnswers[i][1] = qa[1];
+        }
+
+        Engine.run(description, questionsAndAnswers);
     }
 
-    @Override
-    public String[] generateQuestionAndAnswer() {
-        Random random = new Random();
-
+    public static String[] generateQuestionAndAnswer() {
         int num = random.nextInt(50);
         boolean resFunc = predicateFunc(num);
 
         String result = "";
-        if (resFunc == true) {
+        if (resFunc) {
             result = "yes";
         } else {
             result = "no";

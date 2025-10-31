@@ -1,19 +1,26 @@
 package hexlet.code.games;
 
-import hexlet.code.Game;
+import hexlet.code.Engine;
 
 import java.util.Random;
 
-public class Calculator implements Game {
-    private Random random = new Random();
+public class Calculator {
+    private static Random random = new Random();
 
-    @Override
-    public String getGameDescription() {
-        return "What is the result of the expression?";
+    public static void start() {
+        String description = "What is the result of the expression?";
+        String[][] questionsAndAnswers = new String[3][2];
+
+        for (int i = 0; i < 3; i++) {
+            String[] qa = generateQuestionAndAnswer();
+            questionsAndAnswers[i][0] = qa[0];
+            questionsAndAnswers[i][1] = qa[1];
+        }
+
+        Engine.run(description, questionsAndAnswers);
     }
 
-    @Override
-    public String[] generateQuestionAndAnswer() {
+    public static String[] generateQuestionAndAnswer() {
         int a = random.nextInt(20);
         int b = random.nextInt(20);
         char[] ops = {'+', '-', '*'};

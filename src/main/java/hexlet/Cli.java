@@ -6,6 +6,7 @@ public class Cli {
     String name;
 
     public Cli() {
+        // Конструктор для вызова метода welcomeToGame()
     }
 
     public void welcomeToGame() {
