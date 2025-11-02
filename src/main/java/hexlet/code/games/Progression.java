@@ -2,10 +2,10 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.Random;
+import java.security.SecureRandom;
 
 public class Progression {
-    private static final Random random = new Random();
+    private static final SecureRandom random = new SecureRandom();
     private static final int LENGTH = 10;
     private static final int ROUNDS_COUNT = 3;
 
