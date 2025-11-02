@@ -7,6 +7,17 @@ import java.util.Scanner;
 public class Engine {
     private static final int ROUNDS_COUNT = 3;
 
+    public static void start(String description, String[][] questionAndAnswer) {
+        System.out.println(questionAndAnswer.length);
+        String[][] newquestionAndAnswer = new String[ROUNDS_COUNT][2];
+
+        for (int i = 0; i < ROUNDS_COUNT; i++) {
+            newquestionAndAnswer[i][0] = questionAndAnswer[0][i];
+            newquestionAndAnswer[i][1] = questionAndAnswer[1][i];
+        }
+        Engine.run(description, newquestionAndAnswer);
+    }
+
     public static void run(String description, String[][] questionsAndAnswers) {
         Scanner scanner = new Scanner(System.in);
         Cli cli = new Cli();

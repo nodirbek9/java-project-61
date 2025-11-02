@@ -9,31 +9,27 @@ public class Calculator {
     private static final int ROUNDS_COUNT = 3;
     private static final int GENERATE_NUMBERS = 20;
 
-    public static void start() {
+    public static void initializeStart() {
         String description = "What is the result of the expression?";
-        String[][] questionsAndAnswers = new String[3][2];
-        for (int i = 0; i < ROUNDS_COUNT; i++) {
-            String[] qa = generateQuestionAndAnswer();
-            questionsAndAnswers[i][0] = qa[0];
-            questionsAndAnswers[i][1] = qa[1];
-        }
-
-        Engine.run(description, questionsAndAnswers);
+        Engine.start(description, generateQuestionAndAnswer());
     }
 
-    public static String[] generateQuestionAndAnswer() {
-        int a = random.nextInt(GENERATE_NUMBERS);
-        int b = random.nextInt(GENERATE_NUMBERS);
+    public static String[][] generateQuestionAndAnswer() {
+        String[] questions = new String[ROUNDS_COUNT];
+        String[] correctAnswers = new String[ROUNDS_COUNT];
         char[] ops = {'+', '-', '*'};
-        char op = ops[random.nextInt(ops.length)];
-
-        int result = switch (op) {
-            case '+' -> a + b;
-            case '-' -> a - b;
-            case '*' -> a * b;
-            default -> throw new IllegalStateException("Unexpected value: " + op);
-        };
-
-        return new String[]{a + " " + op + " " + b, String.valueOf(result)};
+        for (int i = 0; i < ROUNDS_COUNT; i++) {
+            int a = random.nextInt(GENERATE_NUMBERS);
+            int b = random.nextInt(GENERATE_NUMBERS);
+            char op = ops[random.nextInt(ops.length)];
+            questions[i] = a + " " + op + " " + b;
+            correctAnswers[i] = switch (op) {
+                case '+' -> Integer.toString(a + b);
+                case '-' -> Integer.toString(a - b);
+                case '*' -> Integer.toString(a * b);
+                default -> throw new IllegalStateException("Unexpected value: " + op);
+            };
+        }
+        return new String[][]{questions, correctAnswers};
     }
 }

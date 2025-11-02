@@ -6,26 +6,26 @@ import java.util.Random;
 
 public class Gcd {
     private static final Random random = new Random();
-    private static final int ROUNDS_COUNT = 3;
     private static final int GENERATE_NUMBERS = 50;
+    private static final int ROUNDS_COUNT = 3;
 
-    public static void start() {
-
+    public static void initializeStart() {
         String description = "Find the greatest common divisor of given numbers.";
-        String[][] questionsAndAnswers = new String[3][2];
-        for (int i = 0; i < ROUNDS_COUNT; i++) {
-            String[] qa = generateQuestionAndAnswer();
-            questionsAndAnswers[i][0] = qa[0];
-            questionsAndAnswers[i][1] = qa[1];
-        }
-        Engine.run(description, questionsAndAnswers);
+        Engine.start(description, generateQuestionAndAnswer());
     }
 
-    public static String[] generateQuestionAndAnswer() {
-        int a = random.nextInt(GENERATE_NUMBERS);
-        int b = random.nextInt(GENERATE_NUMBERS);
+    public static String[][] generateQuestionAndAnswer() {
+        String[] questions = new String[ROUNDS_COUNT];
+        String[] correctAnswers = new String[ROUNDS_COUNT];
 
-        return new String[]{a + " " + b, String.valueOf(calcNOD(a, b))};
+        for (int i = 0; i < ROUNDS_COUNT; i++) {
+            int a = random.nextInt(GENERATE_NUMBERS);
+            int b = random.nextInt(GENERATE_NUMBERS);
+            questions[i] = a + " " + b;
+            correctAnswers[i] = Integer.toString(calcNOD(a, b));
+        }
+
+        return new String[][]{questions, correctAnswers};
     }
 
     public static int calcNOD(int a, int b) {

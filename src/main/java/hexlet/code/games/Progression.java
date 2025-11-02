@@ -9,42 +9,42 @@ public class Progression {
     private static final int LENGTH = 10;
     private static final int ROUNDS_COUNT = 3;
 
-    public static void start() {
+    public static void initializeStart(){
         String description = "What number is missing in the progression?";
-        String[][] questionsAndAnswers = new String[3][2];
-
-        for (int i = 0; i < ROUNDS_COUNT; i++) {
-            String[] qa = generateQuestionAndAnswer();
-            questionsAndAnswers[i][0] = qa[0];
-            questionsAndAnswers[i][1] = qa[1];
-        }
-
-        Engine.run(description, questionsAndAnswers);
+        Engine.start(description, generateQuestionAndAnswer());
     }
 
-    public static String[] generateQuestionAndAnswer() {
 
-        int start = random.nextInt(LENGTH);
-        int step = random.nextInt(5) + 1;
-        int hiddenIndex = random.nextInt(LENGTH);
+    public static String[][] generateQuestionAndAnswer() {
 
-        int[] progression = progressionNumbers(start, step, LENGTH);
+        int[] progression;
+        String[] progressionStr = new String[ROUNDS_COUNT];
+        String[] correctAnswer = new String[ROUNDS_COUNT];
+        for (int i = 0; i < ROUNDS_COUNT; i++) {
+            int start = random.nextInt(LENGTH);
+            int step = random.nextInt(5) + 1;
+            int hiddenIndex = random.nextInt(LENGTH);
 
-        String progressionStr = "";
-        for (int i = 0; i < LENGTH; i++) {
-            if (i == hiddenIndex) {
-                progressionStr += "..";
-            } else {
-                progressionStr += progression[i];
+            progression = Progression.progressionNumbers(start, step, LENGTH);
+
+            for (int j = 0; j < LENGTH; j++) {
+                if (j == 0) {
+                    progressionStr[i] = Integer.toString(progression[j]);
+                } else if (j == hiddenIndex && j == 0) {
+                    progressionStr[i] = "..";
+                } else if (j == hiddenIndex) {
+                    progressionStr[i] += "..";
+                } else {
+                    progressionStr[i] += progression[j];
+                }
+                if (j < LENGTH - 1) {
+                    progressionStr[i] += " ";
+                }
             }
-
-            if (i < LENGTH - 1) {
-                progressionStr += " ";
-            }
+            correctAnswer[i] = Integer.toString(progression[hiddenIndex]);
         }
 
-        String correctAnswer = Integer.toString(progression[hiddenIndex]);
-        return new String[]{progressionStr, correctAnswer};
+        return new String[][]{progressionStr, correctAnswer};
     }
 
     public static int[] progressionNumbers(int first, int step, int length) {

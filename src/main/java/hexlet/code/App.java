@@ -25,11 +25,11 @@ public class App {
 
         switch (choice) {
             case 1 -> new Cli().welcomeToGame();
-            case 2 -> EvenGame.start();
-            case 3 -> Calculator.start();
-            case 4 -> Gcd.start();
-            case 5 -> Progression.start();
-            case 6 -> Prime.start();
+            case 2 -> EvenGame.initializeStart();
+            case 3 -> Calculator.initializeStart();
+            case 4 -> Gcd.initializeStart();
+            case 5 -> Progression.initializeStart();
+            case 6 -> Prime.initializeStart();
             case 0 -> System.out.println("Goodbye!");
             default -> System.out.println("Invalid choice. Please try again.");
         }

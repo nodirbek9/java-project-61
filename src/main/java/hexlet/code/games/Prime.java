@@ -2,36 +2,31 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Prime {
     private static final Random random = new Random();
     private static final int ROUNDS_COUNT = 3;
 
-    public static void start() {
+    public static void initializeStart() {
         String description = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        String[][] questionsAndAnswers = new String[3][2];
-        for (int i = 0; i < ROUNDS_COUNT; i++) {
-
-            String[] qa = generateQuestionAndAnswer();
-            questionsAndAnswers[i][0] = qa[0];
-            questionsAndAnswers[i][1] = qa[1];
-        }
-
-        Engine.run(description, questionsAndAnswers);
+        Engine.start(description, generateQuestionAndAnswer());
     }
 
-    public static String[] generateQuestionAndAnswer() {
-        int num = random.nextInt(50);
-        boolean resFunc = predicateFunc(num);
-
-        String result = "";
-        if (resFunc) {
-            result = "yes";
-        } else {
-            result = "no";
+    public static String[][] generateQuestionAndAnswer() {
+        String[] questions = new String[ROUNDS_COUNT];
+        String[] correctAnswers = new String[ROUNDS_COUNT];
+        for (int i = 0; i < ROUNDS_COUNT; i++) {
+            int num = random.nextInt(50);
+            questions[i] = Integer.toString(num);
+            if (predicateFunc(num)) {
+                correctAnswers[i] = "yes";
+            } else {
+                correctAnswers[i] = "no";
+            }
         }
-        return new String[]{String.valueOf(num), result};
+        return new String[][]{questions, correctAnswers};
     }
 
     public static boolean predicateFunc(int n) {
