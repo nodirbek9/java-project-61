@@ -2,12 +2,15 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class Prime {
     private static final Random random = new Random();
     private static final int ROUNDS_COUNT = 3;
+
+    private Prime() {
+        throw new IllegalStateException("Utility class");
+    }
 
     public static void initializeStart() {
         String description = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";

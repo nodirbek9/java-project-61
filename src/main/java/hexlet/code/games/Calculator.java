@@ -9,6 +9,10 @@ public class Calculator {
     private static final int ROUNDS_COUNT = 3;
     private static final int GENERATE_NUMBERS = 20;
 
+    private Calculator() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static void initializeStart() {
         String description = "What is the result of the expression?";
         Engine.start(description, generateQuestionAndAnswer());

@@ -9,6 +9,10 @@ public class EvenGame {
     private static final int ROUNDS_COUNT = 3;
     private static final int GENERATE_NUMBERS = 20;
 
+    private EvenGame() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static void initializeStart() {
         String description = "Answer 'yes' if the number is even, otherwise answer 'no'.";
         Engine.start(description, generateQuestionAndAnswer());
@@ -22,10 +26,8 @@ public class EvenGame {
             questions[i] = Integer.toString(num);
             if (num % 2 == 0) {
                 correctAnswers[i] = "yes";
-            } else if (num % 2 == 1) {
-                correctAnswers[i] = "no";
             } else {
-                throw new IllegalStateException("Unexpected value: " + num);
+                correctAnswers[i] = "no";
             }
         }
         return new String[][]{questions, correctAnswers};

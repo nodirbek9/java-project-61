@@ -9,6 +9,10 @@ public class Gcd {
     private static final int GENERATE_NUMBERS = 50;
     private static final int ROUNDS_COUNT = 3;
 
+    private Gcd() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static void initializeStart() {
         String description = "Find the greatest common divisor of given numbers.";
         Engine.start(description, generateQuestionAndAnswer());
@@ -29,7 +33,7 @@ public class Gcd {
     }
 
     public static int calcNOD(int a, int b) {
-        int devider = 0;
+        int devider;
         while (b != 0) {
             devider = a % b;
             a = b;

@@ -9,6 +9,10 @@ public class Progression {
     private static final int LENGTH = 10;
     private static final int ROUNDS_COUNT = 3;
 
+    private Progression() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static void initializeStart(){
         String description = "What number is missing in the progression?";
         Engine.start(description, generateQuestionAndAnswer());
@@ -30,10 +34,8 @@ public class Progression {
             for (int j = 0; j < LENGTH; j++) {
                 if (j == 0) {
                     progressionStr[i] = Integer.toString(progression[j]);
-                } else if (j == hiddenIndex && j == 0) {
+                } else if (j == hiddenIndex ) {
                     progressionStr[i] = "..";
-                } else if (j == hiddenIndex) {
-                    progressionStr[i] += "..";
                 } else {
                     progressionStr[i] += progression[j];
                 }

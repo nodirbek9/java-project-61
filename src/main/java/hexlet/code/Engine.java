@@ -7,6 +7,10 @@ import java.util.Scanner;
 public class Engine {
     private static final int ROUNDS_COUNT = 3;
 
+    private Engine() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static void start(String description, String[][] questionAndAnswer) {
         System.out.println(questionAndAnswer.length);
         String[][] newquestionAndAnswer = new String[ROUNDS_COUNT][2];
