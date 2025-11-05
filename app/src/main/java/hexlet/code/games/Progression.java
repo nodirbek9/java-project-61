@@ -3,7 +3,6 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 import java.security.SecureRandom;
-import java.util.Arrays;
 
 public class Progression {
     private static final SecureRandom random = new SecureRandom();

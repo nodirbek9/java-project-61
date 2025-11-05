@@ -1,2 +1,2 @@
-rootProject.name = "java-project-61"
+rootProject.name = "app"
 
