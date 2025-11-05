@@ -6,7 +6,7 @@ plugins {
 
 checkstyle {
     toolVersion = "10.12.4"
-    configFile = file("/Users/user/IdeaProjects/BrainGames/java-project-61/config/checkstyle/checkstyle.xml")
+    configFile = file("/java-project-61/config/checkstyle/checkstyle.xml")
 }
 
 sonar {
