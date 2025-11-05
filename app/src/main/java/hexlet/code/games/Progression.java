@@ -4,9 +4,10 @@ import hexlet.code.Engine;
 
 import java.security.SecureRandom;
 
-public class Progression {
-    private static final SecureRandom random = new SecureRandom();
+public final class Progression {
+    private static final SecureRandom RANDOM = new SecureRandom();
     private static final int LENGTH = 10;
+    private static final int MIN_STEP = 5;
     private static final int ROUNDS_COUNT = 3;
 
     private Progression() {
@@ -25,9 +26,9 @@ public class Progression {
         String[] correctAnswers = new String[ROUNDS_COUNT];
 
         for (int i = 0; i < ROUNDS_COUNT; i++) {
-            int start = random.nextInt(LENGTH);
-            int step = random.nextInt(5) + 1;
-            int hiddenIndex = random.nextInt(LENGTH);
+            int start = RANDOM.nextInt(LENGTH);
+            int step = RANDOM.nextInt(MIN_STEP) + 1;
+            int hiddenIndex = RANDOM.nextInt(LENGTH);
 
             String[] progression = generateProgression(start, step, LENGTH);
 

@@ -10,28 +10,36 @@ import hexlet.code.games.Progression;
 
 import java.util.Scanner;
 
-public class App {
+public final class App {
+    private static final int GREET = 1;
+    private static final int EVEN = 2;
+    private static final int CALC = 3;
+    private static final int GCD = 4;
+    private static final int PROGRESSION = 5;
+    private static final int PRIME = 6;
+    private static final int EXIT = 0;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter the game number and press Enter.\n"
-                + "1 - Greet\n"
-                + "2 - Even\n"
-                + "3 - Calc\n"
-                + "4 - GCD\n"
-                + "5 - Progression\n"
-                + "6 - Prime\n"
-                + "0 - Exit");
+                + GREET + " - Greet\n"
+                + EVEN + " - Even\n"
+                + CALC + " - Calc\n"
+                + GCD + " - GCD\n"
+                + PROGRESSION + " - Progression\n"
+                + PRIME + " - Prime\n"
+                + EXIT + " - Exit");
         System.out.print("Your choice: ");
         int choice = scanner.nextInt();
 
         switch (choice) {
-            case 1 -> Cli.greet();
-            case 2 -> EvenGame.initializeStart();
-            case 3 -> Calculator.initializeStart();
-            case 4 -> Gcd.initializeStart();
-            case 5 -> Progression.initializeStart();
-            case 6 -> Prime.initializeStart();
-            case 0 -> System.out.println("Goodbye!");
+            case GREET -> Cli.greet();
+            case EVEN -> EvenGame.initializeStart();
+            case CALC -> Calculator.initializeStart();
+            case GCD -> Gcd.initializeStart();
+            case PROGRESSION -> Progression.initializeStart();
+            case PRIME -> Prime.initializeStart();
+            case EXIT -> System.out.println("Goodbye!");
             default -> System.out.println("Invalid choice. Please try again.");
         }
         scanner.close();

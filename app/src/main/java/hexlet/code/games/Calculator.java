@@ -4,8 +4,8 @@ import hexlet.code.Engine;
 
 import java.security.SecureRandom;
 
-public class Calculator {
-    private static final SecureRandom random = new SecureRandom();
+public final class Calculator {
+    private static final SecureRandom RANDOM = new SecureRandom();
     private static final int ROUNDS_COUNT = 3;
     private static final int GENERATE_NUMBERS = 20;
 
@@ -23,9 +23,9 @@ public class Calculator {
         String[] correctAnswers = new String[ROUNDS_COUNT];
         char[] ops = {'+', '-', '*'};
         for (int i = 0; i < ROUNDS_COUNT; i++) {
-            int a = random.nextInt(GENERATE_NUMBERS);
-            int b = random.nextInt(GENERATE_NUMBERS);
-            char op = ops[random.nextInt(ops.length)];
+            int a = RANDOM.nextInt(GENERATE_NUMBERS);
+            int b = RANDOM.nextInt(GENERATE_NUMBERS);
+            char op = ops[RANDOM.nextInt(ops.length)];
             questions[i] = a + " " + op + " " + b;
             correctAnswers[i] = calculateExpression(a, b, op);
         }

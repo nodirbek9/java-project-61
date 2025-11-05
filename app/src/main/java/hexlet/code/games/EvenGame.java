@@ -4,8 +4,8 @@ import hexlet.code.Engine;
 
 import java.security.SecureRandom;
 
-public class EvenGame {
-    private static final SecureRandom random = new SecureRandom();
+public final class EvenGame {
+    private static final SecureRandom RANDOM = new SecureRandom();
     private static final int ROUNDS_COUNT = 3;
     private static final int GENERATE_NUMBERS = 20;
 
@@ -22,7 +22,7 @@ public class EvenGame {
         String[] questions = new String[ROUNDS_COUNT];
         String[] correctAnswers = new String[ROUNDS_COUNT];
         for (int i = 0; i < ROUNDS_COUNT; i++) {
-            int num = random.nextInt(GENERATE_NUMBERS);
+            int num = RANDOM.nextInt(GENERATE_NUMBERS);
             questions[i] = Integer.toString(num);
             correctAnswers[i] = (num % 2 == 0) ? "yes" : "no";
         }

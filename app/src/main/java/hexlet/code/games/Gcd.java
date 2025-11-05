@@ -4,8 +4,8 @@ import hexlet.code.Engine;
 
 import java.security.SecureRandom;
 
-public class Gcd {
-    private static final SecureRandom random = new SecureRandom();
+public final class Gcd {
+    private static final SecureRandom RANDOM = new SecureRandom();
     private static final int GENERATE_NUMBERS = 50;
     private static final int ROUNDS_COUNT = 3;
 
@@ -14,7 +14,8 @@ public class Gcd {
     }
 
     public static void initializeStart() {
-        String description = "Find the greatest common divisor of given numbers.";
+        String description = "Find the greatest common "
+                + "divisor of given numbers.";
         Engine.start(description, generateQuestionAndAnswer());
     }
 
@@ -23,8 +24,8 @@ public class Gcd {
         String[] correctAnswers = new String[ROUNDS_COUNT];
 
         for (int i = 0; i < ROUNDS_COUNT; i++) {
-            int a = random.nextInt(GENERATE_NUMBERS);
-            int b = random.nextInt(GENERATE_NUMBERS);
+            int a = RANDOM.nextInt(GENERATE_NUMBERS);
+            int b = RANDOM.nextInt(GENERATE_NUMBERS);
             questions[i] = a + " " + b;
             correctAnswers[i] = Integer.toString(gcd(a, b));
         }
