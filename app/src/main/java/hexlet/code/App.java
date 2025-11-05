@@ -1,11 +1,8 @@
 package hexlet.code;
 
 import hexlet.Cli;
-import hexlet.code.games.Calculator;
-import hexlet.code.games.EvenGame;
-import hexlet.code.games.Gcd;
-import hexlet.code.games.Prime;
-import hexlet.code.games.Progression;
+import hexlet.code.games.*;
+
 
 import java.util.Scanner;
 
@@ -24,7 +21,7 @@ public class App {
         int choice = scanner.nextInt();
 
         switch (choice) {
-            case 1 -> new Cli().welcomeToGame();
+            case 1 -> Cli.greet();
             case 2 -> EvenGame.initializeStart();
             case 3 -> Calculator.initializeStart();
             case 4 -> Gcd.initializeStart();

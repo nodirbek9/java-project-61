@@ -4,41 +4,40 @@ import hexlet.code.Engine;
 
 import java.security.SecureRandom;
 
-public class Gcd {
+public class Calculator {
     private static final SecureRandom random = new SecureRandom();
-    private static final int GENERATE_NUMBERS = 50;
     private static final int ROUNDS_COUNT = 3;
+    private static final int GENERATE_NUMBERS = 20;
 
-    private Gcd() {
+    private Calculator() {
         throw new IllegalStateException("Utility class");
     }
 
     public static void initializeStart() {
-        String description = "Find the greatest common divisor of given numbers.";
+        String description = "What is the result of the expression?";
         Engine.start(description, generateQuestionAndAnswer());
     }
 
     public static String[][] generateQuestionAndAnswer() {
         String[] questions = new String[ROUNDS_COUNT];
         String[] correctAnswers = new String[ROUNDS_COUNT];
-
+        char[] ops = {'+', '-', '*'};
         for (int i = 0; i < ROUNDS_COUNT; i++) {
             int a = random.nextInt(GENERATE_NUMBERS);
             int b = random.nextInt(GENERATE_NUMBERS);
-            questions[i] = a + " " + b;
-            correctAnswers[i] = Integer.toString(calcNOD(a, b));
+            char op = ops[random.nextInt(ops.length)];
+            questions[i] = a + " " + op + " " + b;
+            correctAnswers[i] = calculateExpression(a, b, op);
         }
-
         return new String[][]{questions, correctAnswers};
     }
 
-    public static int calcNOD(int a, int b) {
-        int devider;
-        while (b != 0) {
-            devider = a % b;
-            a = b;
-            b = devider;
-        }
-        return a;
+    public static String calculateExpression(int a, int b, char operator) {
+        return switch (operator) {
+            case '+' -> Integer.toString(a + b);
+            case '-' -> Integer.toString(a - b);
+            case '*' -> Integer.toString(a * b);
+            default -> throw new IllegalStateException("Unexpected value: " + operator);
+        };
     }
 }

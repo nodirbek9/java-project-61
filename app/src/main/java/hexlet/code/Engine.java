@@ -1,18 +1,16 @@
 package hexlet.code;
 
-import hexlet.Cli;
-
 import java.util.Scanner;
 
 public class Engine {
     private static final int ROUNDS_COUNT = 3;
+    private static final Scanner scanner = new Scanner(System.in);
 
     private Engine() {
         throw new IllegalStateException("Utility class");
     }
 
     public static void start(String description, String[][] questionAndAnswer) {
-        System.out.println(questionAndAnswer.length);
         String[][] newquestionAndAnswer = new String[ROUNDS_COUNT][2];
 
         for (int i = 0; i < ROUNDS_COUNT; i++) {
@@ -23,10 +21,11 @@ public class Engine {
     }
 
     public static void run(String description, String[][] questionsAndAnswers) {
-        Scanner scanner = new Scanner(System.in);
-        Cli cli = new Cli();
-        cli.welcomeToGame();
 
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        String userName = scanner.next();
+        System.out.println("Hello, " + userName + "!");
         System.out.println(description);
 
         for (int i = 0; i < ROUNDS_COUNT; i++) {
@@ -41,10 +40,10 @@ public class Engine {
                 System.out.println("Correct!");
             } else {
                 System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-                System.out.println("Let's try again, " + cli.getName() + "!");
+                System.out.println("Let's try again, " + userName + "!");
                 return;
             }
         }
-        System.out.println("Congratulations, " + cli.getName() + "!");
+        System.out.println("Congratulations, " + userName + "!");
     }
 }

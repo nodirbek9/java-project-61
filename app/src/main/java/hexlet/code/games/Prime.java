@@ -23,16 +23,12 @@ public class Prime {
         for (int i = 0; i < ROUNDS_COUNT; i++) {
             int num = random.nextInt(50);
             questions[i] = Integer.toString(num);
-            if (predicateFunc(num)) {
-                correctAnswers[i] = "yes";
-            } else {
-                correctAnswers[i] = "no";
-            }
+            correctAnswers[i] = isPrime(num) ? "yes" : "no";
         }
         return new String[][]{questions, correctAnswers};
     }
 
-    public static boolean predicateFunc(int n) {
+    public static boolean isPrime(int n) {
         int sqrtN = (int) Math.sqrt(n);
         if (n < 2) {
             return false;

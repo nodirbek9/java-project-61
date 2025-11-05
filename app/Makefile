@@ -1,3 +1,5 @@
+.PHONY: build run test clean check deps tasks
+
 build:
 	./gradlew build
 
