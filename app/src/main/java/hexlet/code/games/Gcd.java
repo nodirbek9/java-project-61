@@ -7,7 +7,6 @@ import java.security.SecureRandom;
 public final class Gcd {
     private static final SecureRandom RANDOM = new SecureRandom();
     private static final int GENERATE_NUMBERS = 50;
-    private static final int ROUNDS_COUNT = 3;
 
     private Gcd() {
         throw new IllegalStateException("Utility class");
@@ -20,10 +19,10 @@ public final class Gcd {
     }
 
     public static String[][] generateQuestionAndAnswer() {
-        String[] questions = new String[ROUNDS_COUNT];
-        String[] correctAnswers = new String[ROUNDS_COUNT];
+        String[] questions = new String[Engine.ROUNDS_COUNT];
+        String[] correctAnswers = new String[Engine.ROUNDS_COUNT];
 
-        for (int i = 0; i < ROUNDS_COUNT; i++) {
+        for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
             int a = RANDOM.nextInt(GENERATE_NUMBERS);
             int b = RANDOM.nextInt(GENERATE_NUMBERS);
             questions[i] = a + " " + b;

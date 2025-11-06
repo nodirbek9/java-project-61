@@ -6,7 +6,6 @@ import java.security.SecureRandom;
 
 public final class Prime {
     private static final SecureRandom RANDOM = new SecureRandom();
-    private static final int ROUNDS_COUNT = 3;
     private static final int MULTIPLE_NUM = 50;
 
     private Prime() {
@@ -14,14 +13,15 @@ public final class Prime {
     }
 
     public static void initializeStart() {
-        String description = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        String description = "Answer 'yes' if given number is prime. "
+                + "Otherwise answer 'no'.";
         Engine.start(description, generateQuestionAndAnswer());
     }
 
     public static String[][] generateQuestionAndAnswer() {
-        String[] questions = new String[ROUNDS_COUNT];
-        String[] correctAnswers = new String[ROUNDS_COUNT];
-        for (int i = 0; i < ROUNDS_COUNT; i++) {
+        String[] questions = new String[Engine.ROUNDS_COUNT];
+        String[] correctAnswers = new String[Engine.ROUNDS_COUNT];
+        for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
             int num = RANDOM.nextInt(MULTIPLE_NUM);
             questions[i] = Integer.toString(num);
             correctAnswers[i] = isPrime(num) ? "yes" : "no";

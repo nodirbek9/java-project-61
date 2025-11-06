@@ -8,7 +8,6 @@ public final class Progression {
     private static final SecureRandom RANDOM = new SecureRandom();
     private static final int LENGTH = 10;
     private static final int MIN_STEP = 5;
-    private static final int ROUNDS_COUNT = 3;
 
     private Progression() {
         throw new IllegalStateException("Utility class");
@@ -22,10 +21,10 @@ public final class Progression {
 
     public static String[][] generateQuestionAndAnswer() {
 
-        String[] questions = new String[ROUNDS_COUNT];
-        String[] correctAnswers = new String[ROUNDS_COUNT];
+        String[] questions = new String[Engine.ROUNDS_COUNT];
+        String[] correctAnswers = new String[Engine.ROUNDS_COUNT];
 
-        for (int i = 0; i < ROUNDS_COUNT; i++) {
+        for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
             int start = RANDOM.nextInt(LENGTH);
             int step = RANDOM.nextInt(MIN_STEP) + 1;
             int hiddenIndex = RANDOM.nextInt(LENGTH);

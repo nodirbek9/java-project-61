@@ -6,7 +6,6 @@ import java.security.SecureRandom;
 
 public final class EvenGame {
     private static final SecureRandom RANDOM = new SecureRandom();
-    private static final int ROUNDS_COUNT = 3;
     private static final int GENERATE_NUMBERS = 20;
 
     private EvenGame() {
@@ -14,14 +13,15 @@ public final class EvenGame {
     }
 
     public static void initializeStart() {
-        String description = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+        String description = "Answer 'yes' if the number is even,"
+                + " otherwise answer 'no'.";
         Engine.start(description, generateQuestionAndAnswer());
     }
 
     public static String[][] generateQuestionAndAnswer() {
-        String[] questions = new String[ROUNDS_COUNT];
-        String[] correctAnswers = new String[ROUNDS_COUNT];
-        for (int i = 0; i < ROUNDS_COUNT; i++) {
+        String[] questions = new String[Engine.ROUNDS_COUNT];
+        String[] correctAnswers = new String[Engine.ROUNDS_COUNT];
+        for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
             int num = RANDOM.nextInt(GENERATE_NUMBERS);
             questions[i] = Integer.toString(num);
             correctAnswers[i] = (num % 2 == 0) ? "yes" : "no";
