@@ -1,7 +1,7 @@
 .PHONY: build run test clean check deps tasks
 
 build:
-	cd code/app && ./gradlew build
+	./gradlew build
 
 run:
 	./gradlew run --console=plain
@@ -10,7 +10,7 @@ test:
 	./gradlew test
 
 clean:
-	cd app && ./gradlew clean
+	./gradlew clean
 
 # Проверка стиля кода (если есть checkstyle)
 check:
@@ -32,12 +32,6 @@ run-app:
 fast-build:
 	./gradlew build -x test
 
-setup:
-	cd app && ./gradlew clean installDist
-    mkdir -p bin
-    cp app/build/install/app/bin/* bin/
-    chmod +x bin/*
-
 # Помощь
 help:
 	@echo "Доступные команды:"
@@ -47,4 +41,3 @@ help:
 	@echo "  make clean    - очистить проект"
 	@echo "  make check    - проверить стиль кода"
 	@echo "  make deps     - показать зависимости"
-
