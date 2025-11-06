@@ -10,7 +10,7 @@ test:
 	./gradlew test
 
 clean:
-	./gradlew clean
+	cd app && ./gradlew clean
 
 # Проверка стиля кода (если есть checkstyle)
 check:
@@ -33,9 +33,10 @@ fast-build:
 	./gradlew build -x test
 
 setup:
-	cd code/app && ./gradlew clean installDist -p .
-	mkdir -p bin
-	cp code/app/build/install/app/bin/* bin/
+	cd app && ./gradlew clean installDist
+    mkdir -p bin
+    cp app/build/install/app/bin/* bin/
+    chmod +x bin/*
 
 # Помощь
 help:
