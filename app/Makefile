@@ -32,6 +32,9 @@ run-app:
 fast-build:
 	./gradlew build -x test
 
+setup:
+	./gradlew clean installDist
+
 # Помощь
 help:
 	@echo "Доступные команды:"
