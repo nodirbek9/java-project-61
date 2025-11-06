@@ -1,7 +1,7 @@
 .PHONY: build run test clean check deps tasks
 
 build:
-	./gradlew build
+	cd code/app && ./gradlew build
 
 run:
 	./gradlew run --console=plain
@@ -33,7 +33,9 @@ fast-build:
 	./gradlew build -x test
 
 setup:
-	./gradlew clean installDist
+	cd code/app && ./gradlew clean installDist -p .
+	mkdir -p bin
+	cp code/app/build/install/app/bin/* bin/
 
 # Помощь
 help:
