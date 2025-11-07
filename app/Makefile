@@ -1,7 +1,7 @@
 .PHONY: build run test clean check deps tasks
 
 build:
-	./gradlew -p app build
+	./gradlew build
 
 run:
 	./gradlew run --console=plain
@@ -10,11 +10,11 @@ test:
 	./gradlew test
 
 clean:
-	./gradlew -p app clean
+	./gradlew clean
 
 # Проверка стиля кода (если есть checkstyle)
 check:
-	./gradlew -p app checkCode
+	./gradlew check
 
 # Установка зависимостей
 deps:
