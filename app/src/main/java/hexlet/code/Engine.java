@@ -10,16 +10,6 @@ public final class Engine {
         throw new IllegalStateException("Utility class");
     }
 
-    public static void start(String description, String[][] questionAndAnswer) {
-        String[][] newquestionAndAnswer = new String[ROUNDS_COUNT][2];
-
-        for (int i = 0; i < ROUNDS_COUNT; i++) {
-            newquestionAndAnswer[i][0] = questionAndAnswer[0][i];
-            newquestionAndAnswer[i][1] = questionAndAnswer[1][i];
-        }
-        Engine.run(description, newquestionAndAnswer);
-    }
-
     public static void run(String description, String[][] questionsAndAnswers) {
 
         System.out.println("Welcome to the Brain Games!");
@@ -28,20 +18,20 @@ public final class Engine {
         System.out.println("Hello, " + userName + "!");
         System.out.println(description);
 
-        for (String[] questionAndAnswer : questionsAndAnswers) {
-            String question = questionAndAnswer[0];
-            String correctAnswer = questionAndAnswer[1];
+        for (int i = 0; i < ROUNDS_COUNT; i++) {
+            String question = questionsAndAnswers[0][i];
+            String answer = questionsAndAnswers[1][i];
 
             System.out.println("Question: " + question);
             System.out.print("Your answer: ");
             String userAnswer = SCANNER.next();
 
-            if (userAnswer.equals(correctAnswer)) {
+            if (userAnswer.equals(answer)) {
                 System.out.println("Correct!");
             } else {
                 System.out.println("'" + userAnswer
                         + "' is wrong answer ;(. Correct answer was '"
-                        + correctAnswer + "'.");
+                        + answer + "'.");
                 System.out.println("Let's try again, " + userName + "!");
                 return;
             }

@@ -15,7 +15,7 @@ public final class EvenGame {
     public static void initializeStart() {
         String description = "Answer 'yes' if the number is even,"
                 + " otherwise answer 'no'.";
-        Engine.start(description, generateQuestionAndAnswer());
+        Engine.run(description, generateQuestionAndAnswer());
     }
 
     public static String[][] generateQuestionAndAnswer() {

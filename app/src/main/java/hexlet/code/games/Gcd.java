@@ -15,7 +15,7 @@ public final class Gcd {
     public static void initializeStart() {
         String description = "Find the greatest common "
                 + "divisor of given numbers.";
-        Engine.start(description, generateQuestionAndAnswer());
+        Engine.run(description, generateQuestionAndAnswer());
     }
 
     public static String[][] generateQuestionAndAnswer() {

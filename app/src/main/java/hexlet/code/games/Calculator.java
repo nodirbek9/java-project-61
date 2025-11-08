@@ -14,7 +14,7 @@ public final class Calculator {
 
     public static void initializeStart() {
         String description = "What is the result of the expression?";
-        Engine.start(description, generateQuestionAndAnswer());
+        Engine.run(description, generateQuestionAndAnswer());
     }
 
     public static String[][] generateQuestionAndAnswer() {

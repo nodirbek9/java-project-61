@@ -15,7 +15,7 @@ public final class Prime {
     public static void initializeStart() {
         String description = "Answer 'yes' if given number is prime. "
                 + "Otherwise answer 'no'.";
-        Engine.start(description, generateQuestionAndAnswer());
+        Engine.run(description, generateQuestionAndAnswer());
     }
 
     public static String[][] generateQuestionAndAnswer() {

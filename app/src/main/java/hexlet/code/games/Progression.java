@@ -15,7 +15,7 @@ public final class Progression {
 
     public static void initializeStart() {
         String description = "What number is missing in the progression?";
-        Engine.start(description, generateQuestionAndAnswer());
+        Engine.run(description, generateQuestionAndAnswer());
     }
 
 
