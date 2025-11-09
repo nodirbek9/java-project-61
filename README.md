@@ -1,17 +1,102 @@
-### Hexlet tests and linter status:
+# Brain Games 🧠
+
 [![Actions Status](https://github.com/nodirbek9/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/nodirbek9/java-project-61/actions)
 
-//My first game demonstrate
-https://asciinema.org/a/6BDWoMYBmVqiwvuejKwnMWqIB
+---
 
-// Second Calc game demonstration
-https://asciinema.org/a/xrRnadk8HFBqi4GBVfzaPQ2o3
+## 🧩 Описание проекта
 
-// Third GCD game demonstrated
-https://asciinema.org/a/uxnFmafu30eJr3m7zWoTdkwW1
+**Brain Games** — консольное приложение, состоящее из набора логических и математических мини-игр.  
+Цель каждой игры — правильно ответить на несколько вопросов подряд.  
+Проект выполнен в рамках курса **Hexlet Java Developer**.
 
-// Forth Progression game demonstrated
-https://asciinema.org/a/r3g3oU6LgNGEWeKrnYBC6HHfZ
+---
 
-// Final Game demonstrated
-https://asciinema.org/a/rWwXClnMgmsanPvessGpiwPaz
+## 🎮 Игры
+
+1. **Even** — определить, является ли число чётным
+2. **Calc** — решить простое арифметическое выражение
+3. **GCD** — найти наибольший общий делитель двух чисел
+4. **Progression** — найти пропущенное число в последовательности
+5. **Prime** — определить, является ли число простым
+
+---
+
+## 🚀 Установка и запуск
+
+1. Убедитесь, что у вас установлена **Java 21** (или новее).
+2. Склонируйте репозиторий:
+
+   ```bash
+   git clone https://github.com/nodirbek9/java-project-61.git
+   3. Перейдите в каталог проекта:
+
+      bash:
+   cd java-project-61/app
+Соберите проект с помощью Gradle:
+
+    ./gradlew build
+Запустите игру:
+
+    make run
+
+    // Пример работы
+      Please enter the game number and press Enter.
+      1 - Greet
+      2 - Even
+      3 - Calc
+      4 - GCD
+      5 - Progression
+      6 - Prime
+      0 - Exit
+      Your choice: 2
+      Welcome to the Brain Games!
+      May I have your name? Bek
+      Hello, Bek!
+      Answer "yes" if the number is even, otherwise answer "no".
+      Question: 8
+      Your answer: yes
+      Correct!
+## 🎥 Демонстрация игр
+
+   🟢 Even Game
+   https://asciinema.org/a/6BDWoMYBmVqiwvuejKwnMWqIB
+
+   🧮 Calc Game
+   https://asciinema.org/a/xrRnadk8HFBqi4GBVfzaPQ2o3
+
+   🔢 GCD Game
+   https://asciinema.org/a/uxnFmafu30eJr3m7zWoTdkwW1
+
+   📈 Progression Game
+   https://asciinema.org/a/r3g3oU6LgNGEWeKrnYBC6HHfZ
+
+   🧠 Prime Game (финальная)
+   https://asciinema.org/a/rWwXClnMgmsanPvessGpiwPaz
+
+### 🛠 Используемые технологии и инструменты:
+Gradle - система сборки с Kotlin DSL (build.gradle.kts)
+
+Gradle Wrapper - для переносимой сборки
+
+Java 17
+
+JVM - платформа выполнения
+
+### Code Quality:
+
+Checkstyle - статический анализ кода (конфиг в config/checkstyle/)
+
+Application Plugin - для создания исполняемых приложений
+
+Checkstyle - статический анализ кода (конфиг в config/checkstyle/)
+
+GitHub Actions — для автоматической проверки проекта
+
+### Архитектурные паттерны:
+
+Модульная архитектура - каждая игра в отдельном классе
+
+Двигатель (Engine) - общая логика для всех игр
+
+Разделение ответственности - CLI, игры, движок
